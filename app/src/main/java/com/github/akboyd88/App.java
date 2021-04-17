@@ -11,6 +11,9 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
 
+import com.google.common.collect.Comparators;
+import com.google.common.hash.Hashing;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.codec.digest.MessageDigestAlgorithms;
 
@@ -22,7 +25,21 @@ public class App {
         Random random = new Random();
 
         List<String> hashingAlgorithm = List.of("MD2", "MD5", "SHA-1", "SHA-224", "SHA-256", "SHA-384", "SHA-512", "SHA-512/224", "SHA-512/256");
-
+        List<String> guavaHashingAlgs = List.of(
+            "adler32",
+            "crc32",
+            "crc32c",
+            "farmHashFingerPrint64",
+            "goodFastHash",
+            "md5",
+            "murmer3_128",
+            "murmer3_32",
+            "sha1",
+            "sha256",
+            "sha384",
+            "sha512",
+            "sipHash24"
+        );
         Map<String, Stats> stats = new HashMap<>();
 
         for(String value : MessageDigestAlgorithms.values()){
@@ -51,12 +68,71 @@ public class App {
             }
         }
 
-        for(Entry<String, Stats> entry : stats.entrySet()){
-            System.out.println(String.format("Average duration for %s is %s nanoseconds", entry.getKey(), entry.getValue().getMean()));
+        
+        for(String value : guavaHashingAlgs){
+            Stats s = new Stats();
+            stats.put("GUA_" + value.toUpperCase(), s);
+            for(int i = 0; i<100000; i++){
+                byte[] array = new byte[256];
+                random.nextBytes(array);
+                long startTime = System.nanoTime();
+                GuavaHash(value, array);
+                long stopTime = System.nanoTime();
+                s.addTime(stopTime-startTime);
+            }
         }
+        stats.entrySet().stream().sorted((l,r)->{
+            return l.getKey().compareTo(r.getKey());
+        }).forEach((entry)->{
+            System.out.println(String.format("Average duration for %s is %s nanoseconds", entry.getKey(), entry.getValue().getMean()));
+
+        });
         
     }
 
+    public static void GuavaHash(String hashingAlgorithm, byte[] contentToHash) {
+        switch(hashingAlgorithm) {
+            case "adler32":
+            Hashing.adler32().hashBytes(contentToHash);
+            break;
+            case "crc32":
+            Hashing.crc32().hashBytes(contentToHash);
+            break;
+            case "crc32c":
+            Hashing.crc32c().hashBytes(contentToHash);
+            break;
+            case "farmHashFingerprint64":
+            Hashing.farmHashFingerprint64().hashBytes(contentToHash);
+            break;
+            case "goodFastHash":
+            Hashing.goodFastHash(32).hashBytes(contentToHash);
+            break;
+            case "md5":
+            Hashing.md5().hashBytes(contentToHash);
+            break;
+            case "murmer3_128":
+            Hashing.murmur3_128().hashBytes(contentToHash);
+            break;
+            case "murmer3_32":
+            Hashing.murmur3_32().hashBytes(contentToHash);
+            break;
+            case "sha1":
+            Hashing.sha1().hashBytes(contentToHash);
+            break;
+            case "sha256":
+            Hashing.sha256().hashBytes(contentToHash);
+            break;
+            case "sha384":
+            Hashing.sha384().hashBytes(contentToHash);
+            break;
+            case "sha512":
+            Hashing.sha512().hashBytes(contentToHash);
+            break;
+            case "sipHash24":
+            Hashing.sipHash24().hashBytes(contentToHash);
+            break;
+        }
+    }
 
     public static void SecurityHash(String hashingAlgorithm, byte[] contentToHash) throws NoSuchAlgorithmException{
         MessageDigest md = MessageDigest.getInstance(hashingAlgorithm);

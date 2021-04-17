@@ -3,38 +3,41 @@
 
 ### Results
 ```
+Average duration for AC_MD2 is 35859 nanoseconds
 Average duration for AC_MD5 is 2138 nanoseconds
-Average duration for SEC_MD5 is 1182 nanoseconds
-
-Average duration for AC_SHA-256 is 2720 nanoseconds
-Average duration for SEC_SHA-256 is 2573 nanoseconds
-
-Average duration for AC_MD2 is 36032 nanoseconds
-Average duration for SEC_MD2 is 35294 nanoseconds
-
-Average duration for AC_SHA-512 is 2581 nanoseconds
-Average duration for SEC_SHA-512 is 2366 nanoseconds
-
-Average duration for AC_SHA-1 is 2371 nanoseconds
-Average duration for SEC_SHA-1 is 1637 nanoseconds
-
-Average duration for AC_SHA-512/256 is 2244 nanoseconds
-Average duration for SEC_SHA-512/256 is 2430 nanoseconds
-
-Average duration for AC_SHA-512/224 is 2342 nanoseconds
-Average duration for SEC_SHA-512/224 is 2497 nanoseconds
-
-Average duration for AC_SHA-384 is 2480 nanoseconds
-Average duration for SEC_SHA-384 is 2646 nanoseconds
-
-Average duration for AC_SHA-224 is 2485 nanoseconds
-Average duration for SEC_SHA-224 is 2430 nanoseconds
-
-
-Average duration for AC_SHA3-256 is 3935 nanoseconds
-Average duration for AC_SHA3-384 is 3919 nanoseconds
-Average duration for AC_SHA3-224 is 3152 nanoseconds
-Average duration for AC_SHA3-512 is 5061 nanoseconds
+Average duration for AC_SHA-1 is 2461 nanoseconds
+Average duration for AC_SHA-224 is 2678 nanoseconds
+Average duration for AC_SHA-256 is 2582 nanoseconds
+Average duration for AC_SHA-384 is 2647 nanoseconds
+Average duration for AC_SHA-512 is 2528 nanoseconds
+Average duration for AC_SHA-512/224 is 2392 nanoseconds
+Average duration for AC_SHA-512/256 is 2746 nanoseconds
+Average duration for AC_SHA3-224 is 3543 nanoseconds
+Average duration for AC_SHA3-256 is 4495 nanoseconds
+Average duration for AC_SHA3-384 is 3822 nanoseconds
+Average duration for AC_SHA3-512 is 5639 nanoseconds
+Average duration for GUA_ADLER32 is 366 nanoseconds
+Average duration for GUA_CRC32 is 301 nanoseconds
+Average duration for GUA_CRC32C is 1206 nanoseconds
+Average duration for GUA_FARMHASHFINGERPRINT64 is 42 nanoseconds
+Average duration for GUA_GOODFASTHASH is 383 nanoseconds
+Average duration for GUA_MD5 is 1286 nanoseconds
+Average duration for GUA_MURMER3_128 is 1007 nanoseconds
+Average duration for GUA_MURMER3_32 is 276 nanoseconds
+Average duration for GUA_SHA1 is 1981 nanoseconds
+Average duration for GUA_SHA256 is 3314 nanoseconds
+Average duration for GUA_SHA384 is 4232 nanoseconds
+Average duration for GUA_SHA512 is 3105 nanoseconds
+Average duration for GUA_SIPHASH24 is 1433 nanoseconds
+Average duration for SEC_MD2 is 34814 nanoseconds
+Average duration for SEC_MD5 is 1212 nanoseconds
+Average duration for SEC_SHA-1 is 1969 nanoseconds
+Average duration for SEC_SHA-224 is 2499 nanoseconds
+Average duration for SEC_SHA-256 is 2298 nanoseconds
+Average duration for SEC_SHA-384 is 2356 nanoseconds
+Average duration for SEC_SHA-512 is 2429 nanoseconds
+Average duration for SEC_SHA-512/224 is 2964 nanoseconds
+Average duration for SEC_SHA-512/256 is 2325 nanoseconds
 ```
 
 ### Hardware
