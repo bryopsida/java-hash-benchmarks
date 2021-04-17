@@ -53,3 +53,5 @@ Intel(R) Core(TM) i7-3720QM CPU @ 2.60GHz
 ### TODO
 - Test against more runtimes
 - Create a graph
+- Add guava hashing
+- Add bouncy castle hashing
